@@ -5,9 +5,14 @@ import { ChakraProvider } from '@chakra-ui/react'
 
 import App from './App'
 
+import uiTheme from './styles/uiTheme'
+
+// NOTE: styles;
+import './styles/fontOverrides.css'
+
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={uiTheme}>
       <App />
     </ChakraProvider>
   </React.StrictMode>,
