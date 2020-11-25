@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux'
 
-const rootReducer = combineReducers({})
+import activeProps from './activeProps'
+
+const rootReducer = combineReducers({
+  activeProps
+})
 
 export default rootReducer
