@@ -7,7 +7,9 @@ const Header = props => {
     textAlign: 'center',
     padding: '35px',
 
-    color: 'rgba(255,255,255,0.8)'
+    color: 'rgba(255,255,255,0.8)',
+
+    wordBreak: 'keep-all'
   })
 
   return (
