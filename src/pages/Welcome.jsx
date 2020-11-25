@@ -37,9 +37,6 @@ const WelcomePage = props => {
       maxWidth: '100vw',
       wordBreak: 'keep-all'
     },
-    headingTextInput: {
-      maxWidth: '100vw'
-    },
     actionButton: {
       marginTop: '50px'
     }
@@ -68,9 +65,9 @@ const WelcomePage = props => {
           <Editable defaultValue='"처신 잘하라고~"'>
             <Heading as='h1' size='2xl' css={styles.headingText} isTruncated>
               <Tooltip hasArrow label='대사를 수정할 수 있어요!' bg='gray.300' color='black'>
-                <EditablePreview css={{ ...styles.centeredText, ...styles.headingTextInput }} />
+                <EditablePreview css={{ ...styles.centeredText }} />
               </Tooltip>
-              <EditableInput css={styles.centeredText} />
+              <EditableInput css={{ ...styles.centeredText }} />
             </Heading>
           </Editable>
           <Button colorScheme='teal' size='lg' css={styles.actionButton}>
