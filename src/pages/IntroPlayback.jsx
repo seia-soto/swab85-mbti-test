@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
 
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react'
 import { css } from 'glamor'
 import { motion } from 'framer-motion'
 import YouTubePlayer from 'youtube-player'
 
+import * as activePropsActions from '../actions/activeProps'
+
 const IntroPlaybackPage = props => {
   const [visible, setVisible] = useState(0)
+  const { watchedIntroPlayback } = useSelector(states => states.activeProps)
+  const dispatch = useDispatch()
   const history = useHistory()
   const toast = useToast()
   const styles = {
@@ -36,6 +41,13 @@ const IntroPlaybackPage = props => {
   }
 
   useEffect(() => {
+    if (watchedIntroPlayback) {
+      history.push('/test')
+    }
+
+    // NOTE: Mark IntroPlayback as watched right after user sees the screen to allow skipping video immediately.
+    dispatch(activePropsActions.markIntroPlaybackAsWatched())
+
     const player = YouTubePlayer('yt-v-dTweOZwvTKk', {
       videoId: 'dTweOZwvTKk',
       width: '100%',

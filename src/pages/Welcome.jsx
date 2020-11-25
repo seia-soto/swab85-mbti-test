@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { css } from 'glamor'
 import { motion } from 'framer-motion'
 import {
@@ -19,6 +21,8 @@ import father1 from '../images/father-1.png'
 
 const WelcomePage = props => {
   const [visible, setVisible] = useState(0)
+  const { watchedIntroPlayback } = useSelector(states => states.activeProps)
+  const history = useHistory()
   const styles = {
     background: css({
       backgroundImage: `linear-gradient(to bottom, #000000 35px, transparent), url(${father1})`,
@@ -43,6 +47,10 @@ const WelcomePage = props => {
   }
 
   useEffect(() => {
+    if (!watchedIntroPlayback) {
+      history.push('/')
+    }
+
     setTimeout(() => setVisible(1), 0.45 * 1000)
   }, [])
 
