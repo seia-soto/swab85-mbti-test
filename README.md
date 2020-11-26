@@ -1,6 +1,16 @@
-# New Project
+# Seia-Soto/swab85-mbti-site
+
+**승우아빠 MBTI**, 여러분에게 맞는 최적의 흑우 그리고 승우아빠는 어떤 유형인지 알아보세요.
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
+
+## Table of Contents
+
+- [Development](#Development)
+
+----
+
+# Development
 
 ## Available Scripts
 
