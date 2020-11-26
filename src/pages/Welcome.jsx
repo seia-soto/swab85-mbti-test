@@ -90,7 +90,13 @@ const WelcomePage = props => {
             colorScheme='teal'
             size='lg'
             css={styles.actionButton}
-            onClick={event => history.push('/test')}
+            onClick={event => {
+              setVisible(0)
+
+              setTimeout(() => {
+                history.push('/test')
+              }, 1 * 1000)
+            }}
           >
             시작하기
           </Button>

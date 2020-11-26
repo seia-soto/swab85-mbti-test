@@ -3,7 +3,7 @@ import * as activePropsActions from '../actions/activeProps'
 const initialState = {
   watchedIntroPlayback: false,
   mbtiScores: {
-    attensionFocused: 0, // NOTE: E <-> I
+    attensionFocused: 0, // NOTE: (minus) E <-> I (plus)
     recognitionFunction: 0, // NOTE: S <-> N
     judgmentFunction: 0, // NOTE: T <-> F
     lifeStyle: 0 // NOTE: J <-> P
