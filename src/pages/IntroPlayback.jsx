@@ -88,7 +88,8 @@ const IntroPlaybackPage = props => {
       }
     })
 
-    player.setPlaybackQuality('hd1080')
+    // NOTE: removed due to considerate of mobile data usage;
+    // player.setPlaybackQuality('hd1080')
 
     player.on('ready', () => {
       setVisible(1)

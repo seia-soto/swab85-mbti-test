@@ -81,11 +81,14 @@ const Header = props => {
                 // creator credit;
               }
               <Heading as='h2' size='md'>
-                제작자
+                제작자: Seia-Soto
               </Heading>
               <Stack direction='row' spacing={4} css={styles.actionGroup}>
                 <Button as={Link} leftIcon={<FaDiscord />} colorScheme='gray' href='https://discordapp.com/invite/vAEBXWY' isExternal>
                   Discord
+                </Button>
+                <Button as={Link} colorScheme='gray' href='https://seia.io' isExternal>
+                  Website
                 </Button>
               </Stack>
             </DrawerBody>
