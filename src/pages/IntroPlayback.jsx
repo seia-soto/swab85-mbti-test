@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react'
 import { css } from 'glamor'
 import { motion } from 'framer-motion'
@@ -16,11 +16,29 @@ const IntroPlaybackPage = props => {
   const history = useHistory()
   const toast = useToast()
   const styles = {
+    motionContainer: css({
+      opacity: 0
+    }),
     wrapper: css({
       width: '100vw',
       height: '100vh',
       margin: 0,
       pointerEvents: 'none'
+    }),
+    skipContainer: css({
+      textAlign: 'center',
+      padding: '8px 0',
+      paddingTop: '35px',
+      width: '100vw',
+      zIndex: 2,
+      position: 'absolute'
+    }),
+    skipAction: css({
+      color: 'white',
+      fontWeight: 700,
+      padding: '12px',
+      background: 'black',
+      borderRadius: '10px'
     })
   }
   const videoStates = {
@@ -42,7 +60,7 @@ const IntroPlaybackPage = props => {
 
   useEffect(() => {
     if (watchedIntroPlayback) {
-      history.push('/test')
+      history.push('/')
     }
 
     // NOTE: Mark IntroPlayback as watched right after user sees the screen to allow skipping video immediately.
@@ -77,7 +95,7 @@ const IntroPlaybackPage = props => {
 
       toast({
         title: '동영상 준비 중',
-        description: '동영상이 즉시 재생되지 않는 경우 웹 페이지를 새로고침 해주세요.',
+        description: '동영상이 즉시 재생되지 않는 경우 웹 페이지를 새로고침 해주세요. 모바일에서는 YouTube 정책에 의해 작동하지 않습니다.',
         isClosable: true
       })
     })
@@ -87,11 +105,7 @@ const IntroPlaybackPage = props => {
       switch (state) {
         case 'ended':
         case 'paused': {
-          setVisible(0)
-
-          setTimeout(() => {
-            history.push('/test')
-          }, 1 * 1000)
+          history.push('/')
 
           break
         }
@@ -129,7 +143,13 @@ const IntroPlaybackPage = props => {
             opacity: 0
           }
         }}
+        {...styles.motionContainer}
       >
+        <div {...styles.skipContainer}>
+          <Link to='/' {...styles.skipAction}>
+            동영상 건너뛰기
+          </Link>
+        </div>
         <div {...styles.wrapper}>
           <div id='yt-v-dTweOZwvTKk' />
         </div>

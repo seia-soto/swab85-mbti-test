@@ -11,6 +11,7 @@ import {
   EditablePreview,
   EditableInput,
   Heading,
+  Text,
   Tooltip
 } from '@chakra-ui/react'
 
@@ -41,6 +42,10 @@ const WelcomePage = props => {
       maxWidth: '100vw',
       wordBreak: 'keep-all'
     },
+    descriptionText: {
+      paddingTop: '15px',
+      wordBreak: 'keep-all'
+    },
     actionButton: {
       marginTop: '50px'
     }
@@ -48,10 +53,10 @@ const WelcomePage = props => {
 
   useEffect(() => {
     if (!watchedIntroPlayback) {
-      history.push('/')
+      history.push('/intro')
     }
 
-    setTimeout(() => setVisible(1), 0.45 * 1000)
+    setTimeout(() => setVisible(1), 1 * 1000)
   }, [])
 
   return (
@@ -71,13 +76,16 @@ const WelcomePage = props => {
         <Header />
         <Container centerContent>
           <Editable defaultValue='"처신 잘하라고~"'>
-            <Heading as='h1' size='2xl' css={styles.headingText} isTruncated>
+            <Heading as='h1' size='2xl' color='gray.200' css={styles.headingText} isTruncated>
               <Tooltip hasArrow label='대사를 수정할 수 있어요!' bg='gray.300' color='black'>
                 <EditablePreview css={{ ...styles.centeredText }} />
               </Tooltip>
               <EditableInput css={{ ...styles.centeredText }} />
             </Heading>
           </Editable>
+          <Text color='gray.300' css={{ ...styles.descriptionText, ...styles.centeredText }}>
+            여러분은 어떤 타입으로 '볶'을 수 있는지 알아보세요!
+          </Text>
           <Button colorScheme='teal' size='lg' css={styles.actionButton}>
             시작하기
           </Button>

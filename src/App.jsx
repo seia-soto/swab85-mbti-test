@@ -3,7 +3,8 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom'
 
 // NOTE: RootComponent;
@@ -18,8 +19,11 @@ const App = props => {
     <RootComponent>
       <Router>
         <Switch>
-          <Route exact path='/' component={IntroPlaybackPage} />
-          <Route exact path='/test' component={WelcomePage} />
+          <Route exact path='/' component={WelcomePage} />
+          <Route exact path='/intro' component={IntroPlaybackPage} />
+          <Route>
+            <Redirect to='/' />
+          </Route>
         </Switch>
       </Router>
     </RootComponent>
