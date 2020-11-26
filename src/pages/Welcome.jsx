@@ -86,7 +86,12 @@ const WelcomePage = props => {
           <Text color='gray.300' css={{ ...styles.descriptionText, ...styles.centeredText }}>
             여러분은 어떤 타입으로 '볶'을 수 있는지 알아보세요!
           </Text>
-          <Button colorScheme='teal' size='lg' css={styles.actionButton}>
+          <Button
+            colorScheme='teal'
+            size='lg'
+            css={styles.actionButton}
+            onClick={event => history.push('/test')}
+          >
             시작하기
           </Button>
         </Container>
