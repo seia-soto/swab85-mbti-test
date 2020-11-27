@@ -60,7 +60,11 @@ const ResultPage = props => {
     }
   }
 
-  const result = results[mbti]
+  const result = results[mbti] || {
+    title: mbti,
+    description: '아직 준비 중!',
+    features: []
+  }
 
   if (!result) {
     history.push('/')

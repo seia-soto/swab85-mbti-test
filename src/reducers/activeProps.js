@@ -25,6 +25,7 @@ const reducer = (state = initialState, action) => {
 
       // NOTE: update mbti scores;
       newState.mbtiScores[payload.tense] += payload.score
+      newState.mbtiScores[payload.tense] = Math.round(newState.mbtiScores[payload.tense] * 100) / 100
 
       return newState
     }

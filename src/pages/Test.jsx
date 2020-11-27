@@ -72,7 +72,7 @@ const TestPage = props => {
             min={0}
             max={questions.length - 1}
             value={currentQuestionIndex}
-            colorScheme='green'
+            colorScheme='teal'
             isAnimated
             isIndeterminate={isIndeterminate}
           />
@@ -105,17 +105,18 @@ const TestPage = props => {
                     <Button
                       key={`swab-mbti.test.answer-${currentQuestionIndex}-${key}`}
                       rightIcon={<FaArrowRight />}
-                      colorScheme='green'
+                      colorScheme='teal'
                       onClick={event => {
                         // NOTE: return to initial state if the index of the question is 0;
                         if (!currentQuestionIndex) {
-                          dispatch(activePropsActions.scoreTest('attensionFocused', -mbtiScores.attensionFocused))
-                          dispatch(activePropsActions.scoreTest('recognitionFunction', -mbtiScores.recognitionFunction))
-                          dispatch(activePropsActions.scoreTest('judgmentFunction', -mbtiScores.judgmentFunction))
-                          dispatch(activePropsActions.scoreTest('lifeStyle', -mbtiScores.lifeStyle))
+                          const fieldNames = Object.keys(mbtiScores)
+
+                          for (let i = 0, l = fieldNames.length; i < l; i++) {
+                            dispatch(activePropsActions.scoreTest(fieldNames[i], -mbtiScores[fieldNames[i]]))
+                          }
                         }
 
-                        dispatch(activePropsActions.scoreTest(answer.action.tense, answer.action.score))
+                        dispatch(activePropsActions.scoreTest(answer.action.tense, answer.action.score || 0))
                         setVisible(0)
 
                         setTimeout(() => {
