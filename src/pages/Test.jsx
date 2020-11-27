@@ -107,6 +107,14 @@ const TestPage = props => {
                       rightIcon={<FaArrowRight />}
                       colorScheme='green'
                       onClick={event => {
+                        // NOTE: return to initial state if the index of the question is 0;
+                        if (!currentQuestionIndex) {
+                          dispatch(activePropsActions.scoreTest('attensionFocused', -mbtiScores.attensionFocused))
+                          dispatch(activePropsActions.scoreTest('recognitionFunction', -mbtiScores.recognitionFunction))
+                          dispatch(activePropsActions.scoreTest('judgmentFunction', -mbtiScores.judgmentFunction))
+                          dispatch(activePropsActions.scoreTest('lifeStyle', -mbtiScores.lifeStyle))
+                        }
+
                         dispatch(activePropsActions.scoreTest(answer.action.tense, answer.action.score))
                         setVisible(0)
 
@@ -130,7 +138,7 @@ const TestPage = props => {
                             if (mbtiScores.recognitionFunction > 0) {
                               result += 'N'
                             } else {
-                              result += 'T'
+                              result += 'S'
                             }
                             if (mbtiScores.judgmentFunction > 0) {
                               result += 'F'
@@ -154,7 +162,7 @@ const TestPage = props => {
                             setTimeout(() => {
                               setVisible(false)
 
-                              setTimeout(() => history.push('/results/' + result), 0.5 * 1000)
+                              setTimeout(() => history.push('/result/' + result), 0.5 * 1000)
                             }, 3 * 1000)
                           }
                         }, 0.5 * 1000)
