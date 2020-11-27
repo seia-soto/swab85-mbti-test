@@ -38,7 +38,7 @@ const TestPage = props => {
       backgroundPosition: 'center',
       backgroundSize: 'cover',
 
-      height: '100vh'
+      minHeight: '100vh'
     }),
     actionGroup: {
       padding: '75px 0'

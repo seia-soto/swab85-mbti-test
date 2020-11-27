@@ -30,7 +30,7 @@ const WelcomePage = props => {
       backgroundPosition: 'center',
       backgroundSize: 'cover',
 
-      height: '100vh'
+      minHeight: '100vh'
     }),
     motionWrapper: css({
       opacity: 0

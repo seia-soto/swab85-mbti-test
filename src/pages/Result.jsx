@@ -40,7 +40,7 @@ const ResultPage = props => {
       backgroundPosition: 'center',
       backgroundSize: 'cover',
 
-      height: '100vh'
+      minHeight: '100vh'
     }),
     featuredImage: {
       marginBottom: '15px'

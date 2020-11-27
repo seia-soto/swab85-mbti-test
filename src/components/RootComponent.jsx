@@ -13,7 +13,7 @@ const { store, persistor } = configureStore()
 const RootComponent = props => {
   const styles = css({
     background: 'black',
-    height: '100vh'
+    minHeight: '100vh'
   })
 
   return (
