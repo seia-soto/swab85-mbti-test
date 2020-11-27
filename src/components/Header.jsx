@@ -3,6 +3,7 @@ import React from 'react'
 import { css } from 'glamor'
 import {
   Button,
+  Code,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -48,9 +49,8 @@ const Header = props => {
     <>
       <div {...styles.header}>
         <Link onClick={onOpen}>
-          '승우아빠'
+          '승우아빠'를 위한 유사 MBTI 테스트 <Code>추가 정보</Code>
         </Link>
-        와 함께하는 유사 MBTI 테스트
       </div>
       <Drawer
         isOpen={isOpen}
