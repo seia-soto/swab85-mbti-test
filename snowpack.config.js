@@ -1,4 +1,6 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
 module.exports = {
   mount: {
     public: '/',
@@ -24,7 +26,18 @@ module.exports = {
     ],
     [
       '@snowpack/plugin-webpack',
-      {}
+      {
+        extendConfig: config => {
+          config.plugins.push(new CleanWebpackPlugin({
+            dry: false,
+            verbose: true,
+            cleanStaleWebpackAssets: true,
+            protectWebpackAssets: true
+          }))
+
+          return config
+        }
+      }
     ]
   ],
   install: [
