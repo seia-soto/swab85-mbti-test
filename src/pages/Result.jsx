@@ -81,12 +81,7 @@ const ResultPage = props => {
     }
   }
 
-  const result = results[mbti] || {
-    title: mbti,
-    description: '아직 준비 중!',
-    features: [],
-    image: 0
-  }
+  const result = results[mbti]
   const images = [
     father2,
     father3,
@@ -113,6 +108,7 @@ const ResultPage = props => {
   if (!result) {
     history.push('/')
 
+    // NOTE: this line prevents useless rendering;
     return null
   }
 
