@@ -1,4 +1,7 @@
 {
+  "name": "swab85-mbti-site",
+  "author": "Seia-Soto <seia@outlook.kr>",
+  "license": "MIT",
   "scripts": {
     "start": "snowpack dev --reload",
     "build": "snowpack build --clean",
