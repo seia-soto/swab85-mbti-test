@@ -21,7 +21,7 @@ const IntroPlaybackPage = props => {
     }),
     wrapper: css({
       width: '100vw',
-      minHeight: '100vh',
+      height: '100vh',
       margin: 0,
       pointerEvents: 'none'
     }),
